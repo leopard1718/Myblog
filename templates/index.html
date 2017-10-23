@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blogs List</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+</head>
+<body>
+<div class="container-fluid" style="width:1200px;text-align:center;background:#e6e6e6;margin-top:28px;">
+<div class="header">
+    <h1>Leopard-Blogs</h1>
+</div>
+    {% for blog in blogs %}
+        {% load djangomarkdown %}
+        <div align="center" class="blog">
+            <div class="title">
+                <a href="{% url 'get_detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+            </div>
+        <div class="info">
+            <span class="catagory" style="color: #ff9900;" ><a href="{% url 'get_category' blog.category.name %}">{{ blog.category.name }}</a></span>
+            <span class="author" style="color: #4a86e8;">{{ blog.author }}</span>
+            <span class="created" style="color: #6aa84e;">{{ blog.created |date:"Y-m-d H:i" }}</span>
+        </div>
+        <div class="summary">
+            <p>{{ blog.abstract | djangomarkdown | truncatechars:100 }}</p>
+        </div>
+        </div>
+    {% endfor %}
+
+    {#    页尾#}
+    <br><br><br><br>
+    <div class="row-fluid">
+        <div class="span12">
+            <p class="muted text-center">
+                <em>Leopard-Blogs</em>是一个测试博客系统，由<strong><a href="http://127.0.0.1:8000/index/"> Leopard</a></strong>编写，用作自己python及Django的学习。此为1.0版本，会不定期的维护、添加新的功能和美化。
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

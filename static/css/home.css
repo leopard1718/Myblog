@@ -1,0 +1,33 @@
+@charset "utf-8";
+ h1{
+     padding:2em 1em;
+     color: #6aa84e;
+     background: darkgrey;
+     text-align: center
+ }
+ body{
+     color: #ffffff;
+     background: #ffffff;
+     padding:0 5em;
+     margin:0
+ }
+ h2 {
+     color: #366b04;
+     border-top:1px dotted #fff;
+     margin-top:2em
+ }
+ p{
+     padding: 3px;
+     color: #000000;
+     text-align: center
+ }
+ .blog{
+     padding:20px 0px;
+ }
+ .blog .info span{
+     padding-right: 10px;
+ }
+ .container-fluid .blog .summary{
+     color: black;
+     padding-top:20px;
+ }
